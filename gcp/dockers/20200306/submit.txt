@@ -1,0 +1,19 @@
+gcloud ai-platform jobs submit training $JOB_NAME \
+  --region $REGION \
+  --master-image-uri $IMAGE_URI \
+  -- \
+  --job-dir=gs://data_shikhar
+
+
+gcloud ai-platform jobs submit training cifar_container_3 \
+--master-image-uri $IMAGE_URI \
+--job-dir=gs://data_shikhar \
+--region=us-west1 \
+--config=files/cloudml-gpu.yaml
+
+
+
+gcloud ai-platform jobs describe cifar_container_3
+gcloud ai-platform jobs stream-logs cifar_container_3
+
+https://cloud.google.com/ai-platform/training/docs/custom-containers-training

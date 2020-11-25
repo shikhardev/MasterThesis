@@ -1,0 +1,6 @@
+hpbandster
+torch
+torchvision
+matplotlib
+tensorflow==2.1
+numpy
